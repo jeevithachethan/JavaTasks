@@ -23,12 +23,7 @@ import javax.persistence.Table;
 @Table
 public class Task {
 
-	@Override
-	public String toString() {
-		return "Task [taskId=" + taskId + ", name=" + name + ", developer=" + developer + ", status=" + status
-				+ ", colourResult=" + colourResult + ", createdDate=" + createdDate + ", completedDate=" + completedDate
-				+ "]";
-	}
+
 
 	/**
 	 * @Creating taskId as primarykey
@@ -48,7 +43,7 @@ public class Task {
 	 *
 	 */
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "taskId", referencedColumnName = "taskId")
+	@JoinColumn(name = "developerId")
 	private Developer developer;
 	/**
 	 * @Creating status as string
@@ -172,6 +167,12 @@ public class Task {
 	 */
 	public void setCompletedDate(final Date completedDate) {
 		this.completedDate = completedDate;
+	}
+	@Override
+	public String toString() {
+		return "Task [taskId=" + taskId + ", name=" + name + ", developer=" + developer + ", status=" + status
+				+ ", colourResult=" + colourResult + ", createdDate=" + createdDate + ", completedDate=" + completedDate
+				+ "]";
 	}
 
 }

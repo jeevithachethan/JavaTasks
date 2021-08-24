@@ -23,25 +23,24 @@ public class CalculateTimeService {
 		long diffInMillies = Math.abs(endDate.getTime() - startDate.getTime());
 		long differenceinDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
-		if (differenceinDays > 0 || differenceinDays < 3) {
+		if (differenceinDays > 0 && differenceinDays < 3) {
 			task.setColourResult("Red");
 
 			return task;
 		}
 
-		if (differenceinDays > 3 || differenceinDays < 7) {
+		if (differenceinDays > 3 && differenceinDays < 7) {
 			task.setColourResult("Orange");
 
 			return task;
 		}
-		if (differenceinDays > 7 || differenceinDays < 15) {
+		if (differenceinDays > 7 && differenceinDays < 15) {
 			task.setColourResult("Yellow");
 
 			return task;
 		}
-		if (differenceinDays > 15 || differenceinDays < 30) {
+		if (differenceinDays > 15 && differenceinDays < 30) {
 			task.setColourResult("Green");
-			taskRepository.save(task);
 			return task;
 		}
 		return task;

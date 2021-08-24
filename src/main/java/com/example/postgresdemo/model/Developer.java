@@ -47,7 +47,7 @@ public class Developer {
 	 */
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "developerId", referencedColumnName = "developerId")
+	@JoinColumn(name = "statusId")
 	private Status staus;
 
 	/**
